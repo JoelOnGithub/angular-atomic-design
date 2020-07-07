@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'atomic-inputs';
+  form: FormGroup;
+
+  constructor(fb: FormBuilder) {
+    this.form = fb.group({
+      field1: ['value1', [Validators.required]],
+      field2: ['value2', [Validators.required]],
+    });
+  }
+
+  onSubmit() {
+    console.log(this.form.value);
+  }
+
 }
