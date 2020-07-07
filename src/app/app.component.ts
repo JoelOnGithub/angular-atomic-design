@@ -18,6 +18,7 @@ export class AppComponent {
 
   onSubmit() {
     console.log(this.form.value);
+    console.log(this.form.controls.field2.errors);
   }
 
 }

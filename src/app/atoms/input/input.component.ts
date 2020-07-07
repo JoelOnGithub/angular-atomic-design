@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-input',
@@ -6,7 +7,13 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./input.component.scss']
 })
 export class InputComponent implements OnInit {
-  @Input() formControlName: string;
+  @Input() set control(value: FormControl) {
+    if (this.formControl !== value) {
+      this.formControl = value;
+    }
+  }
+
+  formControl: FormControl;
 
   constructor() { }
 
